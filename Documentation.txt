@@ -1,0 +1,28 @@
+                                              *******************************************************************
+                                              **							       **
+  					      **		*** Django CRM Using SQL  ***                  **
+                                              **	                                                       **
+					      **	      ~~  Created by Arfan Abid  ~~                    **
+                                              **							       **	
+					      **    Copyright©2023-All rights reserved.Developed by IFFIONEX   **	
+                                              **                                                               **
+                                              *******************************************************************	
+
+
+
+
+Step 1: Install python latest version
+
+step 2: install virtual Environment using this command in command prompt >>pip install virtualenv
+
+Step 3: Now create a virtual Environment using "virtualenv venv" or for specific directory use >>> python -m venv "E:\Django course\env"
+
+Step 4: Now activate the virtual environment (Note should be in command prompt whether in vs )using >> env\Scripts\activate
+
+step 5: pip install django
+
+step 6: pip install mysql
+
+step 7: pip install mysql-connector-python
+
+step 8: pip install mysql-connector
