@@ -79,7 +79,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'my_database',  # Name database according to your choice
         'USER': 'root',
-        'PASSWORD': '1122', #you set while Settingup MySQL
+        'PASSWORD': 'arfan123', #you set while Settingup MySQL
         'HOST': 'localhost',
         'PORT': '3306',
     }

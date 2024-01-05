@@ -1,12 +1,6 @@
 import mysql.connector
 
-database=mysql.connector.connect(
-    host = 'localhost',
-    user ='root',
-    passwd= '1122'
-    
-    
-    )
+database = mysql.connector.connect(host = 'localhost', user ='root', password= 'arfan123')
 
 #prepare a cursor object
 
