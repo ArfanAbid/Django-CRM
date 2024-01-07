@@ -27,19 +27,23 @@ A Customer Relationship Management (CRM) application developed using Django, Pyt
    `python -m venv venv` then
    `.\venv\Scripts\activate`
 4. Set up MySQL:
-    Create a MySQL database.
-    Update the database configuration in settings.py with your MySQL credentials:
 
+   - Create a MySQL database named "my_database".
+   - Update the database configuration in settings.py with your MySQL credentials:
+
+```
     DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'your_database_name',
-        'USER': 'your_username',
-        'PASSWORD': 'your_password',
+        'NAME': 'my_database',   # Name database according to your choice
+        'USER': 'root',
+        'PASSWORD': ' ', #you set while Settingup MySQL
         'HOST': 'localhost',
         'PORT': '3306',
     }
 }
+
+```
 
 5. Run Data base migrations:
    `python manage.py migrate`
