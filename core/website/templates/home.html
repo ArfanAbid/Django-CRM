@@ -2,27 +2,80 @@
 
 
 {% block content%}
-
+{% if messages %}
+{%for message in messages %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong></strong> {{ message }}
+    
+</div>
+{% endfor %}
+{% endif %}
 <section class="bg-white py-20">
     <div class="container mx-auto px-6 text-center">
-
-
-        <p class="text-gray-600 mb-8">CRM (Customer Relationship Management) app built using Django, Python, and MySQL can serve as a robust solution for managing interactions with customers and organizing business data efficiently. Leveraging Django's powerful web framework and MySQL as the database, this application will offer comprehensive functionalities.
-            <br><br>
-            Users will have the ability to register and log in securely, ensuring controlled access to the CRM system. Once logged in, they can seamlessly navigate through the interface to add, view, update, and delete records. These records might encompass customer details, interactions, purchase history, or any other relevant information crucial to the business.
+            {% if user.is_authenticated %}
+            <h1 class="text-5xl font-extrabold tracking-wide text-purple-800">Records</h1>
             <br>
-            The app's user-friendly interface will facilitate easy access to information, enabling users to efficiently manage customer data and interactions. Implementing Django's built-in authentication system ensures data security and access control, safeguarding sensitive customer information.
-            <br>
-            Moreover, by leveraging MySQL, a reliable relational database management system, the app will efficiently store and retrieve data, ensuring scalability and robustness in handling large volumes of information.
-            <br>
-            Overall, this CRM app will provide a streamlined platform for businesses to centralize customer data, improve communication, track interactions, and ultimately enhance their relationship management processes. Its combination of Django, Python, and MySQL ensures a powerful, scalable, and secure solution for effective customer relationship management
+            {% if records %}
+            <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
 
+            <body class="bg-gray-100 p-6">
+              <div class="max-w-6xl mx-auto">
+                <table class="min-w-full bg-white rounded-lg overflow-hidden shadow-lg divide-y divide-gray-200 border border-gray-300">
+                  <thead class="bg-gradient-to-r from-purple-400 to-pink-500 text-white">
+                    <tr>
+                      <th class="px-3 py-2 text-left font-semibold">#</th>
+                      <th class="px-3 py-2 text-left font-semibold">Name</th>
+                      <th class="px-3 py-2 text-left font-semibold">Email</th>
+                      <th class="px-3 py-2 text-left font-semibold">Phone</th>
+                      <th class="px-3 py-2 text-left font-semibold">Address</th>
+                      <th class="px-3 py-2 text-left font-semibold">City</th>
+                      <th class="px-3 py-2 text-left font-semibold">State</th>
+                      <th class="px-3 py-2 text-left font-semibold">Zipcode</th>
+                      <th class="px-3 py-2 text-left font-semibold">Action</th>
+                  
+                  </thead>
+                  {% for record in records %}
+                  <tbody class="divide-y divide-gray-200">
+                    <tr class="hover:bg-gray-100">
+                      <td class="px-3 py-2">{{ record.id}} </td>
+                      <td class="px-3 py-2">{{ record.first_name}} {{record.last_name}}</td>
+                      <td class="px-3 py-2">{{ record.email}}</td>
+                      <td class="px-3 py-2">{{ record.phone}}</td>
+                      <td class="px-3 py-2">{{ record.address}}</td>
+                      <td class="px-3 py-2">{{ record.city}}</td>
+                      <td class="px-3 py-2">{{ record.state}}</td>
+                      <td class="px-3 py-2">{{ record.zipcode}}</td>
+                      <td class="px-3 py-2">
+                        <a href="{% url 'update_record' record.id %}"><button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">Update</button></a>
+                        <a href="{% url 'delete_record' record.id %}"><button class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded ml-1">Delete</button></a>
+                      </td>
+                      
+                    </tr>
+                  </tbody>
+                  {% endfor %}
+                </table>
+              </div>
+              {% endif%}
 
+            </body>
+            
+  
 
+            {% else %}
 
+            <p class="text-gray-600 mb-8">CRM (Customer Relationship Management) app built using Django, Python, and MySQL can serve as a robust solution for managing interactions with customers and organizing business data efficiently. Leveraging Django's powerful web framework and MySQL as the database, this application will offer comprehensive functionalities.
+                <br><br>
+                Users will have the ability to register and log in securely, ensuring controlled access to the CRM system. Once logged in, they can seamlessly navigate through the interface to add, view, update, and delete records. These records might encompass customer details, interactions, purchase history, or any other relevant information crucial to the business.
+                <br>
+                The app's user-friendly interface will facilitate easy access to information, enabling users to efficiently manage customer data and interactions. Implementing Django's built-in authentication system ensures data security and access control, safeguarding sensitive customer information.
+                <br>
+                Moreover, by leveraging MySQL, a reliable relational database management system, the app will efficiently store and retrieve data, ensuring scalability and robustness in handling large volumes of information.
+                <br>
+                Overall, this CRM app will provide a streamlined platform for businesses to centralize customer data, improve communication, track interactions, and ultimately enhance their relationship management processes. Its combination of Django, Python, and MySQL ensures a powerful, scalable, and secure solution for effective customer relationship management
+                .</p>
 
-            .</p>
-
+        
+            {% endif %}
         <br>
 
         <br><br><br><br><br><br><br><br><br><br>
@@ -30,9 +83,5 @@
     </div>
 </section>
 
-<footer class="bg-gray-800 text-white py-10">
-    <div class="container mx-auto text-center">
-        <p>&copy; 2024 Arfan Abid. All rights reserved.</p>
-    </div>
-</footer>
+
 {% endblock %}

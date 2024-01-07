@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Update Record</h2>
+                    </div>
+                    <div class="card-body">
+                        <form method="post">
+                            {% csrf_token %}
+
+                            {% if update %}
+                            <div class="form-group">
+                                <label for="username">First Name</label>
+                                <input type="text" class="form-control" name="first_name" id="first_name"
+                                    placeholder=" Enter Fast name" value="{{ update.first_name }}">
+                            </div>
+                            <div class="form-group">
+                                <label for="username">Last Name</label>
+                                <input type="text" class="form-control" name="last_name" 
+                                    placeholder=" Enter last name" value="{{ update.last_name }}">
+                            </div>
+                            <div class="form-group">
+                                <label for="username">email</label>
+                                <input type="email" class="form-control" name="email" 
+                                    placeholder="Choose a email" value="{{ update.email }}">
+                            </div>
+                            <div class="form-group">
+                                <label for="username">phone</label>
+                                <input type="text" class="form-control" name="phone" 
+                                    placeholder=" Enter phone" value="{{ update.phone }}">
+                            </div>
+                            <div class="form-group">
+                                <label for="username">Address</label>
+                                <input type="text" class="form-control" name="address" 
+                                    placeholder=" Enter Address" value="{{ update.address }}">
+                            </div>
+                            <div class="form-group">
+                                <label for="username">City</label>
+                                <input type="text" class="form-control" name="city" 
+                                    placeholder=" Enter city" value="{{ update.city }}">
+                            </div>
+                            <div class="form-group">
+                                <label for="username">State</label>
+                                <input type="text" class="form-control" name="state" 
+                                    placeholder=" Enter state" value="{{ update.state }}">
+                            </div>
+                            <div class="form-group">
+                                <label for="username">ZipCode</label>
+                                <input type="text" class="form-control" name="zipcode" 
+                                    placeholder=" Enter zipcode" value="{{ update.zipcode}}">
+                            </div>
+                        
+                            <br>
+                            <button type="submit" class="btn btn-primary btn-block">Update record</button>
+                            <br>
+                            <b><a href="/">back</a></b> 
+                            {% endif %}
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+{% endblock %}
